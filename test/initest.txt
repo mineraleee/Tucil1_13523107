@@ -1,9 +1,0 @@
-3 4 3
-DEFAULT
-AA
-BBB
-B
-B.
-CCC
-C
-C

@@ -7,12 +7,12 @@ BBB
 BB
 C
 CC
-.C
+ C
 D
 DD
-.DD
+ DD
 EE
-.EEE
+ EEE
 FF
 F
 F
@@ -25,8 +25,8 @@ H
 I
 II
 JJJ
-J.J
-.K
+J J
+ K
 KKK
 LLL
 L
