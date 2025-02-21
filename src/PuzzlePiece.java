@@ -63,34 +63,34 @@ public class PuzzlePiece {
     }
     
     //rotate the shape 90° clockwise
-    private char[][] rotate(char[][] original) {
-        int rows = original.length;
-        int cols = original[0].length;
+    private char[][] rotate(char[][] firstform) {
+        int rows = firstform.length;
+        int cols = firstform[0].length;
         char[][] rotated = new char[cols][rows];
 
         for (int i = 0;i < rows;i++) {
             for (int j = 0;j < cols;j++) {
-                rotated[j][rows - i - 1] = original[i][j];
+                rotated[j][rows - i - 1] = firstform[i][j];
             }
         }
         return rotated;
     }
 
-    //Reflect the shape horizontally
-    private char[][] reflect(char[][] original) {
-        int rows = original.length;
-        int cols = original[0].length;
+    //reflect the shape horizontally
+    private char[][] reflect(char[][] firstform) {
+        int rows = firstform.length;
+        int cols = firstform[0].length;
         char[][] flipped = new char[rows][cols];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0;j < cols;j++) {
-                flipped[i][cols - j - 1] = original[i][j];
+                flipped[i][cols - j - 1] = firstform[i][j];
             }
         }
         return flipped;
     }
 
-    // Convert char[][] to List<String> (storing transformations)
+    //cnvert char[][] to List<String> (storing transformations)
     private List<String> convertToList(char[][] shapeArray) {
         List<String> result = new ArrayList<>();
         for (char[] row : shapeArray) {

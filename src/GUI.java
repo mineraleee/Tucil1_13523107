@@ -60,12 +60,15 @@ public class GUI {
                 result = solver.solvePuzzle(); // solve the puzzle
                 if (result) {
                     int iterationCount = solver.getIterationCount();
-                    SwingUtilities.invokeLater(this::updateBoardDisplay); //show end board
+                    SwingUtilities.invokeLater(this::updateBoardDisplay); //show board
                     long endTime = System.currentTimeMillis();
                     long duration = endTime-startTime;
                     statusLabel.setText("<html>Solved in " + iterationCount + " iterations!<br>Time: " + duration +"ms </html>");
                 } else {
-                    statusLabel.setText("No solution found.");
+                    int iterationCount = solver.getIterationCount();
+                    long endTime = System.currentTimeMillis();
+                    long duration = endTime-startTime;
+                    statusLabel.setText("<html>No solution found in " + iterationCount + " iterations!<br>Time: " + duration +"ms </html>");
                 }
             } catch (IOException ex) {
                 statusLabel.setText("Error: " + ex.getMessage());

@@ -79,20 +79,13 @@ public class PuzzleSolver {
         }
         return '.'; // Default 
     }
-    
-    private void showExcessPiecesWarning() {
-        JOptionPane.showMessageDialog(null,"There are extra puzzle pieces!","Warning!!!",JOptionPane.WARNING_MESSAGE);
-    }
-
-    private void showDifferentTotalPiecesWarning() {
-        JOptionPane.showMessageDialog(null,"The number of pieces doesn't match!","Warning!!!",JOptionPane.WARNING_MESSAGE);
-    }
 
     private boolean solve(int index) {
         if (isBoardFullyFilled()) {
             // still there's other pieces but the board already fullfill
             if (index < pieces.size()) {
-                showExcessPiecesWarning(); // Pop up
+                showExcessPiecesWarning(); // show the pop up cause there's extra pieces
+                return false;
             }
             return true;
         }
@@ -125,7 +118,7 @@ public class PuzzleSolver {
                 }
             }
         }
-        return true; //Board is completely filled
+        return true; //board is completely filled
     }
 
     private boolean canPlacePiece(PuzzlePiece piece, int row, int col) {
@@ -160,8 +153,17 @@ public class PuzzleSolver {
         }
     }
 
+    private void showExcessPiecesWarning() {
+        JOptionPane.showMessageDialog(null,"There are extra puzzle pieces!","Warning!!!",JOptionPane.WARNING_MESSAGE);
+    }
+
+    private void showDifferentTotalPiecesWarning() {
+        JOptionPane.showMessageDialog(null,"The number of pieces doesn't match!","Warning!!!",JOptionPane.WARNING_MESSAGE);
+    }
+
     public boolean solvePuzzle() {
         if (solve(0)) {
+            iterationCount++; //kombinasi yang tepat
             //printBoard(); //uncomment if wanna run in terminal
             //System.out.println("Iterations: " + iterationCount);
             return true;
@@ -195,9 +197,12 @@ public class PuzzleSolver {
     
     //     System.out.print("Do you want to save the solution as an image? (yes/no): ");
     //     String response = scanner.nextLine().trim().toLowerCase();
+    //     System.out.print("Input the filename: ");
+    //     String filename = scanner.nextLine().trim().toLowerCase();
+    //     String name = "../test/"+ filename + ".png";
     
     //     if (response.equals("yes") || response.equals("y")) {
-    //         saveToImage(response);
+    //         saveToImage(name);
     //     } else if (response.equals("no") || response.equals("n")) {
     //         System.out.println("Solution not saved.");
     //     } else {
@@ -215,7 +220,7 @@ public class PuzzleSolver {
 
     //the form will be rounded/circle
     public void saveToImage(String filePath) { 
-        int cellSize = 50;
+        int cellSize = 70;
         int width = M * cellSize;
         int height = N * cellSize;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
