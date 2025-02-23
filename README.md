@@ -13,7 +13,7 @@ java -version
 ```
 ## Structure Program
 ```
-TUCIL1_13523107/
+Tucil1_13523107/
 ├── bin/
 ├── doc/
 │   ├── Tucil1_K2_13523107_Heleni Gratia.pdf
