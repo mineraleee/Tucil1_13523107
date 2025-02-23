@@ -160,51 +160,51 @@ public class PuzzleSolver {
     public boolean solvePuzzle() {
         if (solve(0)) {
             iterationCount++; // add the right combination
-            printBoard(); //uncomment if wanna run in terminal
-            System.out.println("Iterations: " + iterationCount);
+            //printBoard(); //uncomment if wanna run in terminal
+            //System.out.println("Iterations: " + iterationCount);
             return true;
         } return false;
     }
 
     //uncomment if u wanna run in terminal
-    private void printBoard() {
-        Map<Character, String> colorMap = new HashMap<>();
-        Random random = new Random();
+    // private void printBoard() {
+    //     Map<Character, String> colorMap = new HashMap<>();
+    //     Random random = new Random();
 
-        for (char[] row : board) {
-            for (char c : row) {
-                if (c != '.' && !colorMap.containsKey(c)) {
-                    int colorCode = 16 + random.nextInt(240); 
-                    colorMap.put(c, "\u001B[38;5;" + colorCode + "m");
-                }
-            }
-        }
+    //     for (char[] row : board) {
+    //         for (char c : row) {
+    //             if (c != '.' && !colorMap.containsKey(c)) {
+    //                 int colorCode = 16 + random.nextInt(240); 
+    //                 colorMap.put(c, "\u001B[38;5;" + colorCode + "m");
+    //             }
+    //         }
+    //     }
     
-        for (char[] row : board) {
-            for (char c : row) {
-                if (c == '.') {
-                    System.out.print("\u001B[37m" + c + " "); 
-                } else {
-                    System.out.print(colorMap.get(c) + c + " ");
-                }
-            }
-            System.out.println("\u001B[0m"); 
-        }
+    //     for (char[] row : board) {
+    //         for (char c : row) {
+    //             if (c == '.') {
+    //                 System.out.print("\u001B[37m" + c + " "); 
+    //             } else {
+    //                 System.out.print(colorMap.get(c) + c + " ");
+    //             }
+    //         }
+    //         System.out.println("\u001B[0m"); 
+    //     }
     
-        System.out.print("Do you want to save the solution as an image? (yes/no): ");
-        String response = scanner.nextLine().trim().toLowerCase();
+    //     System.out.print("Do you want to save the solution as an image? (yes/no): ");
+    //     String response = scanner.nextLine().trim().toLowerCase();
     
-        if (response.equals("yes") || response.equals("y")) {
-            System.out.print("Input the filename: ");
-            String filename = scanner.nextLine().trim().toLowerCase();
-            String name = "../test/result/"+ filename + ".png";
-            saveToImage(name);
-        } else if (response.equals("no") || response.equals("n")) {
-            System.out.println("Solution not saved.");
-        } else {
-            System.out.println("Invalid input. Please enter yes or no.");
-        }
-    }
+    //     if (response.equals("yes") || response.equals("y")) {
+    //         System.out.print("Input the filename: ");
+    //         String filename = scanner.nextLine().trim().toLowerCase();
+    //         String name = "../test/result/"+ filename + ".png";
+    //         saveToImage(name);
+    //     } else if (response.equals("no") || response.equals("n")) {
+    //         System.out.println("Solution not saved.");
+    //     } else {
+    //         System.out.println("Invalid input. Please enter yes or no.");
+    //     }
+    // }
 
     public int getIterationCount(){
         return iterationCount;

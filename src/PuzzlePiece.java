@@ -29,13 +29,13 @@ public class PuzzlePiece {
         }
     }
 
-    //Generate all possible transformations (rotations and reflections)
+    // generate all possible transformations (rotations and reflections)
     public List<PuzzlePiece> getAllTransformations() {
         Set<String> uniqueShapes = new HashSet<>();
         List<PuzzlePiece> transformations = new ArrayList<>();
         char[][] currentShape = this.shape;
     
-        for (int i = 0;i < 4;i++) { // Rotate 4 times -> 90,180,270,360 
+        for (int i = 0;i < 4;i++) { // rotate 4 times -> 90,180,270,360 
             String shapeStr = toString(currentShape);
             if (uniqueShapes.add(shapeStr)) {
                 transformations.add(new PuzzlePiece(convertToList(currentShape), label));
@@ -61,7 +61,7 @@ public class PuzzlePiece {
         }
         return sb.toString();
     }
-    
+
     //rotate the shape 90° clockwise
     private char[][] rotate(char[][] firstform) {
         int rows = firstform.length;
