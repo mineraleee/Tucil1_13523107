@@ -75,6 +75,6 @@ Once the GUI is displayed, the following buttons are available:
 
 ## Contributor
 
-| NIM      | Nama  | Kelas |
+| NIM      | Name  | Class |
 | :---:    | :---: | :---: |
 | 13523107| Heleni Gratia Meitrina Tampubolon|02|
